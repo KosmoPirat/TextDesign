@@ -90,6 +90,9 @@ body {
     margin: 0;
     font-size: 14px;
     line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .sidebar__footer {
@@ -121,9 +124,11 @@ body {
 /*input text start*/
 .text {
     display: flex;
+    width: 100%;
 }
 
 .text__input {
+    width: 750px;
     border-right: 3px solid #afafaf;
     padding-top: 30px;
     padding-left: 30px;
@@ -131,6 +136,7 @@ body {
 }
 
 .text__output {
+    width: 750px;
     padding-top: 30px;
     padding-left: 30px;
     color: #afafaf;
