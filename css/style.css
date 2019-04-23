@@ -8,6 +8,7 @@ body {
 /*sidebar start*/
 .sidebar {
     display: flex;
+    flex: none;
     flex-direction: column;
     justify-content: space-between;
     width: 300px;
@@ -128,7 +129,7 @@ body {
 }
 
 .text__input {
-    width: 750px;
+    width: 100%;
     border-right: 3px solid #afafaf;
     padding-top: 30px;
     padding-left: 30px;
@@ -136,7 +137,7 @@ body {
 }
 
 .text__output {
-    width: 750px;
+    width: 100%;
     padding-top: 30px;
     padding-left: 30px;
     color: #afafaf;
