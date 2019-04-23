@@ -1,25 +1,26 @@
-*{margin: 0; padding: 0; font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;}
-
-
-.wrapper {
-    display: grid;
-    grid-template-columns: 1fr 3fr 3fr;
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     height: 100vh;
 }
 /*sidebar start*/
 .sidebar {
-    display: grid;
-    grid-template-rows: 6% 1fr 5.8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
     border-right: 2px solid #afafaf;
 }
 
-.sidebar-header {
+.sidebar__header {
     display: flex;
     justify-content: center;
     background-color: #3bc36f;
 }
 
-.buttons {
+.button {
     width: 100%;
     padding: 15px 0;
     border: none;
@@ -30,12 +31,12 @@
     cursor: pointer;
 }
 
-#add-sidebar-item {
+.button_add-item {
     position: relative;
     background-color: #3bc36f;
 }
 
-#add-sidebar-item:after {
+.button_add-item:after {
     content: "";
     position: absolute;
     display: block;
@@ -46,24 +47,26 @@
     height: 20px;
 }
 
-#add-sidebar-item:hover{
+.button_add-item:hover{
     background-color: #3cb964;
     transition: 0.3s;
 }
 
 
-.list-items {
+.list {
+    margin: 0;
+    padding: 0;
     list-style-type: none;
 }
 
-.item {
+.list__item {
     position: relative;
     padding: 15px 30px;
     border-bottom: 1px solid #afafaf;
     color: #767676;
 }
 
-.close {
+.list__close-icon {
     position: absolute;
     display: block;
     top: 10px;
@@ -74,31 +77,36 @@
     height: 10px;
 }
 
-.item:hover .close {
+.list__item:hover .list__close-icon {
     opacity: 1;
     transition: 0.3s;
 }
 
-.item-text{
+.list__head {
+    margin: 0 0 10px 0;
+}
+
+.list__text{
+    margin: 0;
     font-size: 14px;
     line-height: 20px;
 }
 
-.sidebar-footer {
+.sidebar__footer {
     align-items: flex-end;
 }
 
-#hide-sidebar {
+.button_hide-sidebar {
     position: relative;
     background-color: #8c8c8c;
 }
 
-#hide-sidebar:hover{
+.button_hide-sidebar:hover{
     background-color: #828282;
     transition: 0.3s;
 }
 
-#hide-sidebar:after {
+.button_hide-sidebar:after {
     content: "";
     position: absolute;
     display: block;
@@ -111,14 +119,18 @@
 /*sidebar end*/
 
 /*input text start*/
-.input-mark {
+.text {
+    display: flex;
+}
+
+.text__input {
     border-right: 3px solid #afafaf;
     padding-top: 30px;
     padding-left: 30px;
     color: #afafaf;
 }
 
-.output-result {
+.text__output {
     padding-top: 30px;
     padding-left: 30px;
     color: #afafaf;
