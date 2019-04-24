@@ -37,11 +37,16 @@ module.exports = {
             {
                 test: /\.svg$/,
                 loader: 'url-loader'
+            },
+            {
+                test: /\.pug$/,
+                use: ["pug-loader"]
             }
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin({template: './src/index.html'}),
+        //new HtmlWebpackPlugin({template: './src/index.html'}),
+        new HtmlWebpackPlugin({template: './src/index.pug'}),
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css',

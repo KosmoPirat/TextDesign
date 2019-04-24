@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title TextDesign
+    body
+        section.sidebar
+            .sidebar__content
+                header.sidebar__header
+                    button.button.button_plus Добавить
+                ul.sidebar__list.list
+                    li.list__item
+                        .list__close
+                        h4.list__head Text 1
+                        p.list__text Lorem ipsum dolor.
+
+                    li.list__item
+                        .list__close
+                        h4.list__head Text 2
+                        p.list__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, ullam!
+
+                    li.list__item
+                        .list__close
+                        h4.list__head Text 3
+                        p.list__text Lorem ipsum dolor.
+            footer.sidebar__footer
+                button.button.button_back Скрыть
+        .text
+            section.text__input Type markdown...
+            section.text__output Result...
