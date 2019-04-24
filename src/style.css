@@ -42,7 +42,7 @@ body {
     display: inline-block;
     padding-right: 15px;
     margin-bottom: -3px;
-    background-image: url(../images/add.svg);
+    background-image: url(./images/add.svg);
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
@@ -73,7 +73,7 @@ body {
     top: 10px;
     right: 10px;
     opacity: 0;
-    background-image: url(../images/close.svg);
+    background-image: url(./images/close.svg);
     width: 10px;
     height: 10px;
 }
@@ -115,7 +115,7 @@ body {
     display: inline-block;
     padding-right: 15px;
     margin-bottom: -3px;
-    background-image: url(../images/back.svg);
+    background-image: url(./images/back.svg);
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
