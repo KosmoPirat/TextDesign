@@ -6,8 +6,6 @@
 .text__input {
     width: 100%;
     border-right: 3px solid #afafaf;
-    padding-top: 30px;
-    padding-left: 30px;
     color: #afafaf;
 }
 
@@ -20,9 +18,11 @@
 }
 
 .input__item {
+    padding-top: 30px;
+    padding-left: 30px;
     border: none;
     outline: none;
-    width: 99%;
-    height: 99%;
+    width: 96%;
+    height: 96.5%;
     resize: none;
 }
