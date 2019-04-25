@@ -15,6 +15,7 @@
     padding-left: 30px;
     color: #afafaf;
     overflow-y: scroll;
+    overflow-wrap: break-word;
 }
 
 .input__item {
@@ -23,6 +24,7 @@
     border: none;
     outline: none;
     width: 96%;
-    height: 96.5%;
+    height: 96.3%;
     resize: none;
+    overflow-wrap: break-word;
 }
