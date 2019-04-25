@@ -1,1 +1,1 @@
-import css from "./style.css"
+import "./modules/body/body.js"

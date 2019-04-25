@@ -1,0 +1,19 @@
+.text {
+    display: flex;
+    width: 100%;
+}
+
+.text__input {
+    width: 100%;
+    border-right: 3px solid #afafaf;
+    padding-top: 30px;
+    padding-left: 30px;
+    color: #afafaf;
+}
+
+.text__output {
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 30px;
+    color: #afafaf;
+}
