@@ -16,11 +16,13 @@
     padding-top: 30px;
     padding-left: 30px;
     color: #afafaf;
+    overflow-y: scroll;
 }
 
 .input__item {
     border: none;
     outline: none;
     width: 99%;
-    height: 100%;
+    height: 99%;
+    resize: none;
 }
