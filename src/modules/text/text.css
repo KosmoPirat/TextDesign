@@ -17,3 +17,10 @@
     padding-left: 30px;
     color: #afafaf;
 }
+
+.input__item {
+    border: none;
+    outline: none;
+    width: 99%;
+    height: 100%;
+}

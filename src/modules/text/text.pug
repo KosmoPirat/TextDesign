@@ -1,3 +1,4 @@
 .text
-    section.text__input Type markdown...
-    section.text__output Result...
+    section.text__input
+        textarea.input__item#text-input(oninput="this.editor.update()" placeholder="Enter Markdown")
+    section.text__output#preview
