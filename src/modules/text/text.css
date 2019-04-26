@@ -5,7 +5,6 @@
 
 .text__input {
     width: 100%;
-    border-right: 3px solid #afafaf;
     color: #afafaf;
 }
 
@@ -21,10 +20,8 @@
 .input__item {
     padding-top: 30px;
     padding-left: 30px;
-    border: none;
+    border-right: 3px solid #afafaf;
     outline: none;
-    width: 96%;
-    height: 96.3%;
     resize: none;
     overflow-wrap: break-word;
 }
