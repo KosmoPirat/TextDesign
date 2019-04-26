@@ -5,9 +5,6 @@
 
 .text__input {
     width: 100%;
-    border-right: 3px solid #afafaf;
-    padding-top: 30px;
-    padding-left: 30px;
     color: #afafaf;
 }
 
@@ -16,4 +13,15 @@
     padding-top: 30px;
     padding-left: 30px;
     color: #afafaf;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+}
+
+.input__item {
+    padding-top: 30px;
+    padding-left: 30px;
+    border-right: 3px solid #afafaf;
+    outline: none;
+    resize: none;
+    overflow-wrap: break-word;
 }
