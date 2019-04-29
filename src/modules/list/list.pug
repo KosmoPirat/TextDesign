@@ -1,10 +1,7 @@
-mixin list__item(h4Text, pText)
+template
     li.list__item
         .list__close
-        h4.list__head= h4Text
-        p.list__text= pText
+        h4.list__head
+        p.list__text
 
 ul.sidebar__list.list
-    +list__item("Text 1", "dsfsdfdssdfdsfasd")
-    +list__item("Text 2", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, ullam!")
-    +list__item("Text 1", "Lorem ipsum dolor.")
