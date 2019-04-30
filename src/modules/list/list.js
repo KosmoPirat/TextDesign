@@ -27,7 +27,8 @@ let listItem = {
         this.listHead = this.getListHead();
         this.listText = this.getListText();
         console.log(innerText);
-        innerText.split(/&#13;&#10;/);
+        innerText.replace(/\u21B5/g,'\n');
+        innerText.split('\n');
         console.log(innerText[0]);
         console.log(innerText[1]);
         this.listHead.innerHTML =  innerText[0] || "Новая заметка";
