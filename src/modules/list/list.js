@@ -1,9 +1,4 @@
-export function initListItem() {
-    listItem.setInnerText();
-    listItem.setListItemsHTML(listItem.innerText);
-    listItem.cloneListItemsHTML();
-    listItem.addListItemsHTML();
-}
+
 import "./list.css";
 
 
@@ -26,12 +21,9 @@ let listItem = {
     setListItemsHTML(innerText) {
         this.listHead = this.getListHead();
         this.listText = this.getListText();
-        console.log(innerText);
-        innerText.split('\u21B5');
-        console.log(innerText[0]);
-        console.log(innerText[1]);
-        this.listHead.innerHTML =  innerText[0] || "Новая заметка";
-        this.listText.innerHTML =  innerText[1] || "";
+        let itemsData = innerText.split('\n');
+        this.listHead.innerHTML =  itemsData[0] || "Новая заметка";
+        this.listText.innerHTML =  itemsData[1] || "";
     },
 
     cloneListItemsHTML() {
@@ -61,3 +53,10 @@ let listItem = {
         this.innerText = this.getInnerTextHTML();
     }
 };
+
+export function initListItem() {
+    listItem.setInnerText();
+    listItem.setListItemsHTML(listItem.innerText);
+    listItem.cloneListItemsHTML();
+    listItem.addListItemsHTML();
+}
