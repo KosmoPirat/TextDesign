@@ -1,27 +1,35 @@
+export function initListItem() {
+    listItem.setInnerText();
+    listItem.setListItemsHTML(listItem.innerText);
+    listItem.cloneListItemsHTML();
+    listItem.addListItemsHTML();
+}
 import "./list.css";
 
 
 let listItem = {
 
-    listItemsHTML: document.querySelector('.list__item'),
+    listItemsHTML: document.getElementById('templ'),
     cloneListItem: null,
-    listHead: document.querySelector('.list__head'),
-    listText: document.querySelector('.list__text'),
+    listHead: null,
+    listText: null,
     innerText: null,
 
     getListHead() {
-        return document.querySelector('.list__head');
+        return this.listItemsHTML.content.querySelector('.list__head');
     },
 
     getListText() {
-        return document.querySelector('.list__text');
+        return this.listItemsHTML.content.querySelector('.list__text');
     },
 
     setListItemsHTML(innerText) {
         this.listHead = this.getListHead();
         this.listText = this.getListText();
         console.log(innerText);
-        innerText.split('\n');
+        innerText.split(/\n\r/);
+        console.log(innerText[0]);
+        console.log(innerText[1]);
         this.listHead.innerHTML =  innerText[0] || "Новая заметка";
         this.listText.innerHTML =  innerText[1] || "";
     },
@@ -53,14 +61,3 @@ let listItem = {
         this.innerText = this.getInnerTextHTML();
     }
 };
-if ('content' in document.createElement('template')) {
-
-    listItem.setInnerText();
-    listItem.setListItemsHTML(listItem.innerText);
-    listItem.cloneListItemsHTML();
-    listItem.addListItemsHTML();
-
-
-} else {
-    console.log('Browser not supported tag "template"');
-}
