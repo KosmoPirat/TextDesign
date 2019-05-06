@@ -9,6 +9,7 @@
     padding: 15px 30px;
     border-bottom: 1px solid #afafaf;
     color: #767676;
+    cursor: pointer;
 }
 
 .list__close {
@@ -20,6 +21,10 @@
     background: no-repeat url(images/close.svg);
     width: 10px;
     height: 10px;
+}
+
+.list__close:hover {
+    fill: yellow;
 }
 
 .list__item:hover .list__close {

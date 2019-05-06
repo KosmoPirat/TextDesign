@@ -40,7 +40,7 @@ let listItem = {
         return document.getElementById('text-input').value;
     },
 
-    setInnerTextHTML() {
+    addInnerTextHTML() {
         let innerText = document.getElementById('text-input');
         innerText.value = this.innerText;
     },
@@ -51,7 +51,22 @@ let listItem = {
 
     setInnerText() {
         this.innerText = this.getInnerTextHTML();
-    }
+    },
+
+    delListItem(elemTarget) {
+        let listItem = document.querySelector(elemTarget);
+        listItem.parentNode.removeChild(listItem);
+    },
+
+    listItemListener() {
+        document.querySelector('.list__head').addEventListener('click', function () {
+            listItem.addInnerTextHTML();
+        });
+        document.querySelector('.list__close').addEventListener('click', function (event) {
+            console.log(event.target
+        });
+    },
+
 };
 
 export function initListItem() {
@@ -59,4 +74,5 @@ export function initListItem() {
     listItem.setListItemsHTML(listItem.innerText);
     listItem.cloneListItemsHTML();
     listItem.addListItemsHTML();
+    listItem.listItemListener();
 }
