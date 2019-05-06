@@ -53,17 +53,18 @@ let listItem = {
         this.innerText = this.getInnerTextHTML();
     },
 
-    delListItem(elemTarget) {
-        let listItem = document.querySelector(elemTarget);
-        listItem.parentNode.removeChild(listItem);
+    delListItem() {
+        let listItem = document.querySelectorAll('.list__close');
+        listItem.forEach(function(item) {
+                item.addEventListener("click", function(){
+                    item.parentNode.parentNode.removeChild(item.parentNode);
+                });
+        });
     },
 
     listItemListener() {
         document.querySelector('.list__head').addEventListener('click', function () {
             listItem.addInnerTextHTML();
-        });
-        document.querySelector('.list__close').addEventListener('click', function (event) {
-            console.log(event.target
         });
     },
 
@@ -75,4 +76,5 @@ export function initListItem() {
     listItem.cloneListItemsHTML();
     listItem.addListItemsHTML();
     listItem.listItemListener();
+    listItem.delListItem();
 }
