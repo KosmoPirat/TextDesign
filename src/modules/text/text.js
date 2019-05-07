@@ -1,5 +1,5 @@
-import "./text.css"
-
+import "./text.css";
+import "../list/list.js";
 import {markdown} from 'markdown';
 
 let input = document.getElementById("text-input");
