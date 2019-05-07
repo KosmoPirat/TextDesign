@@ -1,13 +1,10 @@
 import "./sidebar.css";
 import "../list/list";
-import {initListItem} from "../list/list";
+import {addListItem} from "../list/list";
 
-document.getElementById('button_plus').addEventListener('click', function () {
-    if ('content' in document.createElement('template')) {
+const buttonPluse = document.getElementById('button_plus');
+if ('content' in document.createElement('template')) {
 
-        initListItem();
+    buttonPluse.onclick = addListItem;
 
-    } else {
-        console.log('Browser not supported tag "template"');
-    }
-});
+} else console.log('Browser not supported tag "template"');

@@ -1,80 +1,21 @@
 
 import "./list.css";
 
+const listItem = document.getElementById('templ');
+const listItemTitle = listItem.content.querySelector('.list-item__title');
+const listItemText = listItem.content.querySelector('.list-item__text');
+const list = document.querySelector('.list');
 
-let listItem = {
+export function addListItem() {
+    let listItemMarkText = document.getElementById('text-input');
+    let itemData = listItemMarkText.value.split('\n');
+    listItemTitle.innerHTML = itemData[0] || "Новая Заметка";
+    listItemText.innerHTML = itemData[1] || "";
+    let cloneItem = document.importNode(listItem.content, true);
+    list.appendChild(cloneItem);
+    list.onclick = function (event) {
+             let target = event.target;
+             if (target.className === 'list-item__close') target.parentNode.remove();
+         };
 
-    listItemsHTML: document.getElementById('templ'),
-    cloneListItem: null,
-    listHead: null,
-    listText: null,
-    innerText: null,
-
-    getListHead() {
-        return this.listItemsHTML.content.querySelector('.list__head');
-    },
-
-    getListText() {
-        return this.listItemsHTML.content.querySelector('.list__text');
-    },
-
-    setListItemsHTML(innerText) {
-        this.listHead = this.getListHead();
-        this.listText = this.getListText();
-        let itemsData = innerText.split('\n');
-        this.listHead.innerHTML =  itemsData[0] || "Новая заметка";
-        this.listText.innerHTML =  itemsData[1] || "";
-    },
-
-    cloneListItemsHTML() {
-        let clone = this.listItemsHTML;
-        this.cloneListItem = document.importNode(clone.content, true)
-    },
-
-    addListItemsHTML() {
-        let list = document.querySelector('.list');
-        list.appendChild(this.cloneListItem);
-    },
-
-    getInnerTextHTML() {
-        return document.getElementById('text-input').value;
-    },
-
-    addInnerTextHTML() {
-        let innerText = document.getElementById('text-input');
-        innerText.value = this.innerText;
-    },
-
-    getInnerText() {
-        return this.innerText;
-    },
-
-    setInnerText() {
-        this.innerText = this.getInnerTextHTML();
-    },
-
-    delListItem() {
-        let listItem = document.querySelectorAll('.list__close');
-        listItem.forEach(function(item) {
-                item.addEventListener("click", function(){
-                    item.parentNode.parentNode.removeChild(item.parentNode);
-                });
-        });
-    },
-
-    listItemListener() {
-        document.querySelector('.list__head').addEventListener('click', function () {
-            listItem.addInnerTextHTML();
-        });
-    },
-
-};
-
-export function initListItem() {
-    listItem.setInnerText();
-    listItem.setListItemsHTML(listItem.innerText);
-    listItem.cloneListItemsHTML();
-    listItem.addListItemsHTML();
-    listItem.listItemListener();
-    listItem.delListItem();
 }

@@ -4,7 +4,7 @@
     list-style-type: none;
 }
 
-.list__item {
+.list-item {
     position: relative;
     padding: 15px 30px;
     border-bottom: 1px solid #afafaf;
@@ -12,7 +12,7 @@
     cursor: pointer;
 }
 
-.list__close {
+.list-item__close {
     position: absolute;
     display: block;
     top: 10px;
@@ -23,20 +23,20 @@
     height: 10px;
 }
 
-.list__close:hover {
+.list-item__close:hover {
     fill: yellow;
 }
 
-.list__item:hover .list__close {
+.list-item:hover .list-item__close {
     opacity: 1;
     transition: 0.3s;
 }
 
-.list__head {
+.list-item__title {
     margin: 0 0 10px 0;
 }
 
-.list__text{
+.list-item__text{
     margin: 0;
     font-size: 14px;
     line-height: 20px;
