@@ -13,6 +13,7 @@ export function addListItem() {
     listItemText.innerHTML = itemData[1] || "";
     const cloneItem = document.importNode(listItem.content, true);
     list.appendChild(cloneItem);
+    listItemMarkText.value = "";
     list.addEventListener('click', function (event) {
         let target = event.target;
         if (target.className === 'list-item__close') target.parentNode.remove();

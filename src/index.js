@@ -1,1 +1,1 @@
-import "./modules/body/body.js"
+import "./modules/body/body.js";
