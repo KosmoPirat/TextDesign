@@ -5,17 +5,16 @@ const listItem = document.getElementById('templ');
 const listItemTitle = listItem.content.querySelector('.list-item__title');
 const listItemText = listItem.content.querySelector('.list-item__text');
 const list = document.querySelector('.list');
+const listItemMarkText = document.getElementById('text-input');
 
 export function addListItem() {
-    let listItemMarkText = document.getElementById('text-input');
-    let itemData = listItemMarkText.value.split('\n');
+    const itemData = listItemMarkText.value.split('\n');
     listItemTitle.innerHTML = itemData[0] || "Новая Заметка";
     listItemText.innerHTML = itemData[1] || "";
-    let cloneItem = document.importNode(listItem.content, true);
+    const cloneItem = document.importNode(listItem.content, true);
     list.appendChild(cloneItem);
-    list.onclick = function (event) {
-             let target = event.target;
-             if (target.className === 'list-item__close') target.parentNode.remove();
-         };
-
+    list.addEventListener('click', function (event) {
+        let target = event.target;
+        if (target.className === 'list-item__close') target.parentNode.remove();
+    });
 }
