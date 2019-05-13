@@ -6,30 +6,42 @@ const listItemTitle = listItem.content.querySelector('.list-item__title');
 const listItemText = listItem.content.querySelector('.list-item__text');
 const list = document.querySelector('.list');
 const listItemMarkText = document.getElementById('text-input');
-let id = 0;
-const notes = {};
+let curId = 0;
+let flag =true;
+let notes = [];
+const curItem = {
+	title: null,
+	subtitle: null,
+	text: null
+};
 
-listItemTitle.innerHTML = 'Новая Заметка';
-listItemText.innerHTML = '';
-let cloneItem = document.importNode(listItem.content, true);
-list.appendChild(cloneItem);
 
-let flag = true;
-let allListItemTitle = document.querySelectorAll('.list-item__title');
-let allListItemText = document.querySelectorAll('.list-item__text');
-listItemMarkText.addEventListener('input', function (flag) {
-	if (flag) {
-		if (!isOverflowed(allListItemTitle[id])) allListItemTitle[id].innerHTML = listItemMarkText.value;
-		if (listItemMarkText.value.slice(-1) === '\n') flag = false;
-    } if (!flag) {
-        if (!isOverflowed(allListItemText[id])) allListItemText[id].innerHTML = listItemMarkText.value.slice(-1);
-	}
-});
-
-function isOverflowed(el) {
-    return el.scrollWidth > el.offsetWidth ||
-        el.scrollHeight > el.offsetHeight;
+function setCurData () {
+    if (flag) {
+        curItem.title = listItemMarkText.value;
+        if (listItemMarkText.value.slice(-1) === '\n' || listItemMarkText.value.length < 40) flag = false;
+    }
+    if (!flag) {
+        if (listItemMarkText.value.length < 80) return;
+        curItem.subtitle = listItemMarkText.value.slice(listItemMarkText.value.search('\n'));
+    }
 }
+
+function getCurItem() {
+    listItemMarkText.addEventListener('input', setCurData);
+    listItemMarkText.removeEventListener('input', setCurData);
+}
+
+
+
+// listItemMarkText.addEventListener('input', function () {
+// 	if (flag) {
+// 		if (!isOverflowed(allListItemTitle[id])) allListItemTitle[id].innerHTML = listItemMarkText.value;
+// 		if (listItemMarkText.value.slice(-1) === '\n') flag = false;
+//     } if (!flag) {
+//         if (!isOverflowed(allListItemText[id])) allListItemText[id].innerHTML = listItemMarkText.value.slice(listItemMarkText.value.search('\n'));
+// 	}
+// });
 
 export function addListItem() {
 	const itemData = listItemMarkText.value.split('\n');
