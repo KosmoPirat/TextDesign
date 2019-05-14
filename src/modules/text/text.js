@@ -16,4 +16,4 @@ export const updateTextArea = (text) => {
 
 	input.value = textToRender;
 	output.innerHTML = markdown.toHTML(input.value);
-}
+};

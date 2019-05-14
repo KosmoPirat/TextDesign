@@ -3,29 +3,25 @@ import './list.css';
 import { updateTextArea } from '../text/text'
 
 const list = document.querySelector('.list');
-const listItemMarkText = document.getElementById('text-input');
-let flag =true;
-const curItem = {
-	title: null,
-	subtitle: null,
-	text: null
-};
+// const listItemMarkText = document.getElementById('text-input');
+// let flag =true;
+// const curItem = {
+//     title: null,
+//     subtitle: null,
+//     text: null
+// };
+//
+// function setCurData () {
+//     if (flag) {
+//         curItem.title = listItemMarkText.value;
+//         if (listItemMarkText.value.slice(-1) === '\n' || listItemMarkText.value.length < 40) flag = false;
+//     }
+//     if (!flag) {
+//         if (listItemMarkText.value.length < 80) return;
+//         curItem.subtitle = listItemMarkText.value.slice(listItemMarkText.value.search('\n'));
+//     }
+// }
 
-function setCurData () {
-    if (flag) {
-        curItem.title = listItemMarkText.value;
-        if (listItemMarkText.value.slice(-1) === '\n' || listItemMarkText.value.length < 40) flag = false;
-    }
-    if (!flag) {
-        if (listItemMarkText.value.length < 80) return;
-        curItem.subtitle = listItemMarkText.value.slice(listItemMarkText.value.search('\n'));
-    }
-}
-
-function getCurItem() {
-    listItemMarkText.addEventListener('input', setCurData);
-    listItemMarkText.removeEventListener('input', setCurData);
-}
 const listItem = document.getElementById('templ');
 
 let lastId = 0;
@@ -58,15 +54,25 @@ export function addListItem() {
 }
 
 export function updateCurrentItem(text) {
-	const currentItem = document.getElementById(currentId);
+	const currentItem = document.getElementById(String(currentId));
 
 	notes[currentId] = { text }; // Это эквивалентно записи notes[currentId] = { text: text }
 
 	// Дописать: класть правильные части строки в заголовок и подзаголовок
 	// ---
+
 	const title = currentItem.firstElementChild;
 	const subtitle = currentItem.lastElementChild;
 
-	title.innerHTML = notes[currentId].text;
+    let notesText = notes[currentId].text.split('\n');
+    if (notesText.length < 3) {
+        if (notesText[1] === undefined) notesText[1] = '';
+        if (notesText[0].length < 25) {
+        	title.innerHTML = notesText[0];
+        }
+        if (notesText[1].length < 25) {
+            subtitle.innerHTML = notesText[1];
+        }
+    }
 	// ---
 }
