@@ -1,6 +1,6 @@
 import './list.css';
 
-import { updateTextArea } from '../text/text'
+import { updateTextArea } from '../text/text';
 
 const list = document.querySelector('.list');
 // const listItemMarkText = document.getElementById('text-input');
@@ -64,15 +64,15 @@ export function updateCurrentItem(text) {
 	const title = currentItem.firstElementChild;
 	const subtitle = currentItem.lastElementChild;
 
-    let notesText = notes[currentId].text.split('\n');
-    if (notesText.length < 3) {
-        if (notesText[1] === undefined) notesText[1] = '';
-        if (notesText[0].length < 25) {
-        	title.innerHTML = notesText[0];
-        }
-        if (notesText[1].length < 25) {
-            subtitle.innerHTML = notesText[1];
-        }
-    }
+	let notesText = notes[currentId].text.split('\n');
+	if (notesText.length < 3) {
+		if (notesText[1] === undefined) notesText[1] = '';
+		if (notesText[0].length < 25) {
+			title.innerHTML = notesText[0];
+		}
+		if (notesText[1].length < 25) {
+			subtitle.innerHTML = notesText[1];
+		}
+	}
 	// ---
 }
