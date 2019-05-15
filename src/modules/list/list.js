@@ -3,27 +3,7 @@ import './list.css';
 import { updateTextArea } from '../text/text';
 
 const list = document.querySelector('.list');
-// const listItemMarkText = document.getElementById('text-input');
-// let flag =true;
-// const curItem = {
-//     title: null,
-//     subtitle: null,
-//     text: null
-// };
-//
-// function setCurData () {
-//     if (flag) {
-//         curItem.title = listItemMarkText.value;
-//         if (listItemMarkText.value.slice(-1) === '\n' || listItemMarkText.value.length < 40) flag = false;
-//     }
-//     if (!flag) {
-//         if (listItemMarkText.value.length < 80) return;
-//         curItem.subtitle = listItemMarkText.value.slice(listItemMarkText.value.search('\n'));
-//     }
-// }
-
 const listItem = document.getElementById('templ');
-
 let lastId = 0;
 let currentId = 0;
 const notes = {};
@@ -63,15 +43,15 @@ export function updateCurrentItem(text) {
 
 	const title = currentItem.firstElementChild;
 	const subtitle = currentItem.lastElementChild;
-
 	let notesText = notes[currentId].text.split('\n');
-	if (notesText.length < 3) {
-		if (notesText[1] === undefined) notesText[1] = '';
-		if (notesText[0].length < 25) {
-			title.innerHTML = notesText[0];
+	let [titleText, subtitleText] = notesText;
+	if (notesText.length < currentItem.childElementCount) {
+		if (subtitleText === undefined) { subtitleText = ''; }
+		if (title.scrollWidth === title.offsetWidth) {
+			title.innerHTML = titleText;
 		}
-		if (notesText[1].length < 25) {
-			subtitle.innerHTML = notesText[1];
+		if (subtitle.scrollWidth === subtitle.offsetWidth) {
+			subtitle.innerHTML = subtitleText;
 		}
 	}
 	// ---

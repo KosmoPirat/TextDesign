@@ -12,7 +12,7 @@ input.addEventListener('input', function () {
 });
 
 export const updateTextArea = (text) => {
-	const textToRender = text === defaultTitle ? '' : text;
+	const textToRender = (text === defaultTitle) ? '' : text;
 
 	input.value = textToRender;
 	output.innerHTML = markdown.toHTML(input.value);
