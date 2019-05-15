@@ -1,21 +1,58 @@
-
 import './list.css';
 
-const listItem = document.getElementById('templ');
-const listItemTitle = listItem.content.querySelector('.list-item__title');
-const listItemText = listItem.content.querySelector('.list-item__text');
+import { updateTextArea } from '../text/text';
+
 const list = document.querySelector('.list');
-const listItemMarkText = document.getElementById('text-input');
+const listItem = document.getElementById('templ');
+let lastId = 0;
+let currentId = 0;
+const notes = {};
+export const defaultTitle = 'Новая заметка';
+
 
 export function addListItem() {
-	const itemData = listItemMarkText.value.split('\n');
-	listItemTitle.innerHTML = itemData[0] || 'Новая Заметка';
-	listItemText.innerHTML = itemData[1] || '';
 	const cloneItem = document.importNode(listItem.content, true);
 	list.appendChild(cloneItem);
-	listItemMarkText.value = '';
-	list.addEventListener('click', function (event) {
+
+	const newItem = list.lastElementChild;
+	newItem.id = currentId = lastId;
+	lastId++;
+
+	updateCurrentItem(defaultTitle);
+	updateTextArea('');
+
+	newItem.addEventListener('click', function (event) {
 		let target = event.target;
-		if (target.className === 'list-item__close') target.parentNode.remove();
+		
+		if (target.className === 'list-item__close') {
+			target.parentNode.remove();
+		} else {
+			currentId = target.id || target.parentElement.id;
+			updateTextArea(notes[currentId].text);
+		}
 	});
+}
+
+export function updateCurrentItem(text) {
+	const currentItem = document.getElementById(String(currentId));
+
+	notes[currentId] = { text }; // Это эквивалентно записи notes[currentId] = { text: text }
+
+	// Дописать: класть правильные части строки в заголовок и подзаголовок
+	// ---
+
+	const title = currentItem.firstElementChild;
+	const subtitle = currentItem.lastElementChild;
+	let notesText = notes[currentId].text.split('\n');
+	let [titleText, subtitleText] = notesText;
+	if (notesText.length < currentItem.childElementCount) {
+		if (subtitleText === undefined) { subtitleText = ''; }
+		if (title.scrollWidth === title.offsetWidth) {
+			title.innerHTML = titleText;
+		}
+		if (subtitle.scrollWidth === subtitle.offsetWidth) {
+			subtitle.innerHTML = subtitleText;
+		}
+	}
+	// ---
 }
