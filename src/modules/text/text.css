@@ -1,6 +1,11 @@
 .text {
     display: flex;
     width: 100%;
+    margin-left: 15.6%;
+    transition: margin-left 1s ease-out 0.5s;
+}
+.text-hide {
+    margin-left: 0;
 }
 
 .text__input {

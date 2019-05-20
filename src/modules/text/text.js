@@ -3,8 +3,9 @@ import './text.css';
 import  { markdown } from 'markdown';
 import { defaultTitle, updateCurrentItem } from '../list/list.js';
 
-let input = document.getElementById('text-input');
-let output = document.getElementById('preview');
+export const textInOut = document.querySelector('.text');
+const input = document.getElementById('text-input');
+const output = document.getElementById('preview');
 
 input.addEventListener('input', function () {
 	updateCurrentItem(input.value);

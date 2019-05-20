@@ -39,7 +39,6 @@ export function updateCurrentItem(text) {
 	notes[currentId] = { text }; // Это эквивалентно записи notes[currentId] = { text: text }
 
 	// Дописать: класть правильные части строки в заголовок и подзаголовок
-	// ---
 
 	const title = currentItem.firstElementChild;
 	const subtitle = currentItem.lastElementChild;
@@ -54,5 +53,4 @@ export function updateCurrentItem(text) {
 			subtitle.innerHTML = subtitleText;
 		}
 	}
-	// ---
 }

@@ -1,10 +1,18 @@
 .sidebar {
+    position: absolute;
     display: flex;
     flex: none;
     flex-direction: column;
     justify-content: space-between;
     width: 300px;
     border-right: 2px solid #afafaf;
+    left: 0;
+    transition: left 1s ease-out 0.5s;
+    height: 100%;
+}
+
+.sidebar-hide {
+    left: -300px;
 }
 
 .sidebar__header {
@@ -51,6 +59,16 @@
 .button_back {
     position: relative;
     background-color: #8c8c8c;
+}
+
+.button_back-hide {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url(images/right-chevron.svg) no-repeat;
+    position: absolute;
+    left: 350px;
+    bottom: 100px;
 }
 
 .button_back:hover{
