@@ -5,7 +5,6 @@ import { textInOut } from '../text/text';
 
 const sidebar = document.querySelector('.sidebar');
 const buttonPlus = document.getElementById('button_plus');
-const buttonBack = document.getElementById('button_back');
 const buttonHide = document.getElementById('button-hide');
 const sidebarFooter = document.querySelector('.sidebar__footer');
 
@@ -16,10 +15,10 @@ if ('content' in document.createElement('template') === false) {
 addListItem();
 buttonPlus.addEventListener('click', addListItem);
 
-function hideSidebar(event) {
-		sidebar.classList.toggle('sidebar-hide');
-        textInOut.classList.toggle('text-hide');
-        buttonHide.classList.toggle('button_back-active');
+function hideSidebar() {
+	sidebar.classList.toggle('sidebar-hide');
+	textInOut.classList.toggle('text-hide');
+	buttonHide.classList.toggle('button_back-active');
 }
 
 sidebarFooter.addEventListener('click', hideSidebar);
