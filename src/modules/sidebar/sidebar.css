@@ -1,18 +1,17 @@
 .sidebar {
-    position: absolute;
     display: flex;
     flex: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 15.6%;
+    width: 300px;
+    margin-left: 0;
     border-right: 2px solid #afafaf;
-    left: 0;
-    transition: left 0.5s ease-out 0.5s;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     height: 100%;
 }
 
-.sidebar-hide {
-    left: -15.6%;
+.sidebar_hidden {
+    margin-left: -300px;
 }
 
 .sidebar__header {
@@ -56,38 +55,36 @@
     align-items: flex-end;
 }
 
-.button_back {
+.button-hide {
     position: relative;
     background-color: #8c8c8c;
 }
 
-.button_back-hide {
+.button-show_hidden {
     display: none;
     width: 50px;
     height: 0;
     background: url(images/right-chevron.svg) no-repeat;
     position: absolute;
-    left: 320px;
     bottom: 30px;
     opacity: 0;
-    transition: opacity 0.5s ease-out 1.5s;
-    border: none;
-    outline: none;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
     cursor: pointer;
 }
 
-.button_back-active {
+.button-show {
     display: block;
     opacity: 1;
     height: 50px;
+    left: 20px;
 }
 
-.button_back:hover{
+.button-hide:hover{
     background-color: #828282;
     transition: 0.3s;
 }
 
-.button_back:before {
+.button-hide:before {
     content: "";
     display: inline-block;
     padding-right: 15px;

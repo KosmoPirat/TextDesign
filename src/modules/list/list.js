@@ -10,7 +10,7 @@ const notes = {};
 export const defaultTitle = 'Новая заметка';
 
 
-export function addListItem() {
+export const addListItem = () => {
 	const cloneItem = document.importNode(listItem.content, true);
 	list.appendChild(cloneItem);
 
@@ -21,7 +21,7 @@ export function addListItem() {
 	updateCurrentItem(defaultTitle);
 	updateTextArea('');
 
-	newItem.addEventListener('click', function (event) {
+	newItem.addEventListener('click', (event) => {
 		let target = event.target;
 		
 		if (target.className === 'list-item__close') {
@@ -31,9 +31,9 @@ export function addListItem() {
 			updateTextArea(notes[currentId].text);
 		}
 	});
-}
+};
 
-export function updateCurrentItem(text) {
+export const updateCurrentItem = (text) => {
 	const currentItem = document.getElementById(String(currentId));
 
 	notes[currentId] = { text }; // Это эквивалентно записи notes[currentId] = { text: text }
@@ -53,4 +53,4 @@ export function updateCurrentItem(text) {
 			subtitle.innerHTML = subtitleText;
 		}
 	}
-}
+};
