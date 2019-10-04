@@ -15,8 +15,8 @@ addListItem();
 buttonPlus.addEventListener('click', addListItem);
 
 const hideSidebar = () => {
-    sidebar.classList.toggle('sidebar_hidden');
-    buttonShow.classList.toggle('button-show');
+	sidebar.classList.toggle('sidebar_hidden');
+	buttonShow.classList.toggle('button-show');
 };
 
 sidebarFooter.addEventListener('click', hideSidebar);
