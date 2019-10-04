@@ -2,6 +2,9 @@
     display: flex;
     width: 100%;
 }
+.text_hidden {
+    margin-left: 0;
+}
 
 .text__input {
     width: 100%;

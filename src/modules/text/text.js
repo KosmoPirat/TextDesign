@@ -3,10 +3,10 @@ import './text.css';
 import  { markdown } from 'markdown';
 import { defaultTitle, updateCurrentItem } from '../list/list.js';
 
-let input = document.getElementById('text-input');
-let output = document.getElementById('preview');
+const input = document.getElementById('text-input');
+const output = document.getElementById('preview');
 
-input.addEventListener('input', function () {
+input.addEventListener('input', () => {
 	updateCurrentItem(input.value);
 	updateTextArea(input.value);
 });
